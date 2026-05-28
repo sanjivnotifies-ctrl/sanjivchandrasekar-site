@@ -1,0 +1,15 @@
+{
+  "name": "sanjivchandrasekar-site",
+  "version": "1.0.0",
+  "description": "Portfolio site for Sanjiv Chandrasekar — Creative Director & Brand Identity Specialist",
+  "scripts": {
+    "dev": "netlify dev",
+    "serve": "npx serve src/",
+    "lint:css": "stylelint src/css/**/*.css",
+    "optimize:images": "node scripts/optimize-images.js"
+  },
+  "devDependencies": {
+    "netlify-cli": "^17.0.0",
+    "serve": "^14.0.0"
+  }
+}
