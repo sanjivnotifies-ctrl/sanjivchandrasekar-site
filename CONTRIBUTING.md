@@ -1,83 +1,52 @@
 # Contributing to sanjivchandrasekar.com
 
-Thank you for contributing. This is the portfolio site of Sanjiv Chandrasekar, a Creative Director and Brand Identity Specialist. Please read this fully before opening a PR.
+Thanks for contributing! This is an open collaboration to improve the frontend performance, backend reliability, and code architecture of [sanjivchandrasekar.com](https://sanjivchandrasekar.com).
 
 ---
 
 ## Local Setup
 
-### Option A — Static only (no functions)
+### Option A — Simple (no functions)
 ```bash
 git clone https://github.com/sanjivnotifies-ctrl/sanjivchandrasekar-site
 cd sanjivchandrasekar-site
 npx serve src/
 ```
-Open http://localhost:3000
 
-### Option B — With Netlify Functions (contact form)
+### Option B — Full Netlify dev (with serverless functions)
 ```bash
 npm install
-cp .env.example .env
-# Fill in your RESEND_API_KEY and email values in .env
 netlify dev
 ```
-Open http://localhost:8888
+
+Copy `.env.example` to `.env` and fill in your values.
 
 ---
 
 ## Branching Strategy
-
 | Branch | Purpose |
 |--------|---------|
-| main | Production — auto-deploys to Netlify |
-| dev | Staging — all PRs target this branch |
-| feature/name | New features — branch from dev |
-| fix/name | Bug fixes — branch from dev |
-| perf/name | Performance improvements |
-
----
-
-## Priority Areas for Contribution
-
-### RED — Critical
-- Contact form backend (functions/contact-handler.js)
-- Mobile layout QA and fixes (375px, 390px, 414px breakpoints)
-
-### YELLOW — High Impact
-- Image optimization (WebP + srcset pipeline)
-- CSS design token extraction into tokens.css
-- Contact form success/error UI states
-
-### GREEN — Nice to Have
-- GA4 analytics implementation
-- Scroll animations polish
-- Dark mode support
-- JSON-LD CreativeWork schema for portfolio projects
+| `main` | Production — auto-deploys to Netlify |
+| `dev` | Staging — deploy previews only |
+| `feature/[name]` | New features — PR into `dev` |
+| `fix/[name]` | Bug fixes — PR into `dev` |
 
 ---
 
 ## PR Requirements
-
-Every PR must include:
-- [ ] Description of what changed and why
-- [ ] Before/after screenshot for any visual change
-- [ ] Tested at 375px, 768px, and 1280px viewport widths
-- [ ] Lighthouse score before/after for any performance PR
-- [ ] Contact form tested end-to-end if functions/ is touched
-- [ ] No new hardcoded color or spacing values (use tokens.css)
+- Screenshot (before/after for any visual change)
+- Tested on mobile at 375px minimum
+- Lighthouse score before/after for performance PRs
+- No hardcoded colors/values — use tokens from `src/css/tokens.css`
 
 ---
 
-## Code Style
-
-- CSS: Use variables from tokens.css — no hardcoded hex values or px magic numbers
-- JS: Vanilla ES6+ only — no jQuery, no frameworks
-- HTML: Semantic elements — use article, section, nav, main, aside correctly
-- Images: Always include alt text. Use webp format with jpeg fallback
-- Commits: Conventional format — feat:, fix:, perf:, docs:, style:, refactor:
-
----
-
-## Questions?
-
-Open a Discussion tab on GitHub or reach out via sanjivchandrasekar.com/contact
+## Priority Contribution Areas
+| Priority | Area | Files |
+|----------|------|-------|
+| HIGH | Contact form serverless handler | `functions/contact-handler.js` |
+| HIGH | Mobile layout fixes (< 375px) | `src/css/components/*.css` |
+| MED | Image optimization (WebP + srcset) | `src/assets/images/` |
+| MED | CSS design token extraction | `src/css/tokens.css` |
+| LOW | GA4 analytics wiring | `src/js/main.js` |
+| LOW | Scroll animations | `src/js/animations.js` |
